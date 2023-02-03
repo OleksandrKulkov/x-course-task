@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { LocalStorageService, LS_KEYS } from "../../services/localStorage";
 import cn from "classnames";
 import { useBooks } from "../../hooks";
 import cart from "../../images/cart.svg";
@@ -6,7 +8,17 @@ import avatar from "../../images/avatar.png";
 import "../../containers/app.css";
 
 export const Header = () => {
-  const { userName, setUserName } = useBooks();
+  const { userName, setUserName, userLogged, setUserLogged } = useBooks();
+
+  useEffect(
+    () => LocalStorageService.set(LS_KEYS.USERLOGGED, userLogged),
+    [userLogged]
+  );
+
+  const handleUserState = () => {
+    setUserName("");
+    setUserLogged(false);
+  };
 
   return (
     <header className="header">
@@ -18,7 +30,7 @@ export const Header = () => {
       </div>
       <div
         className={cn("shopping-block-none", {
-          "shopping-block": userName.length > 3,
+          "shopping-block": userLogged,
         })}
       >
         <img className="shopping-cart" src={cart} alt="Shopping cart" />
@@ -26,9 +38,9 @@ export const Header = () => {
           <button
             className="button-sign-out"
             type="reset"
-            onClick={() => setUserName("")}
+            onClick={handleUserState}
           >
-            Sign-Out
+            Sign out
           </button>
         </Link>
         <img className="user-avatar" src={avatar} alt="User avatar" />
