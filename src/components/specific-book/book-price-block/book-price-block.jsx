@@ -13,8 +13,7 @@ export function BookPriceBlock({ book }) {
   //   }
   // };
 
-  let totalPrice = book?.price * bookQuantity;
-  totalPrice = totalPrice.toFixed(2);
+  let totalPrice = (book?.price * bookQuantity).toFixed(2);
 
   return (
     <section className="book-order">
