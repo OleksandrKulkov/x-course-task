@@ -38,20 +38,6 @@ export function App() {
     [userLogged]
   );
 
-  // async function fetchBooksJSON() {
-  //   // eslint-disable-next-line no-unused-vars
-  //   const response = await fetch(URL)
-  //     .then((response) => response.json())
-  //     .then((books) => setBooks(books.books))
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }
-
-  // useEffect(() => {
-  //   fetchBooksJSON();
-  // }, []);
-
   const { data: books, loading, error } = useFetch("/books.json");
   if (loading) return <h1>Loading...</h1>;
   if (error) console.log(error);
