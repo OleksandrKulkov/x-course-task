@@ -13,7 +13,7 @@ export function BookPriceBlock({ book }) {
   //   }
   // };
 
-  let totalPrice = book.price * bookQuantity;
+  let totalPrice = book?.price * bookQuantity;
 
   return (
     <section className="book-order">
@@ -22,7 +22,7 @@ export function BookPriceBlock({ book }) {
           <p className="p-price">
             <strong>Price:</strong>
             <span id="single-price" className="price">
-              ${book.price}
+              ${book?.price}
             </span>
           </p>
         </div>
