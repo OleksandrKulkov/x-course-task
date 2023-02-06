@@ -46,7 +46,6 @@ export function App() {
     <BooksProvider
       value={{
         books,
-        // setBooks: (b) => setBooks(b),
         userName,
         setUserName: (u) => setUserName(u),
         userLogged,
