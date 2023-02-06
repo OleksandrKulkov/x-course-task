@@ -9,7 +9,7 @@ export function BookInformationBlock({ book }) {
           src={book?.image}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "/imageNotFound.svg";
+            e.target.src = "/imageNotFound.jpg";
           }}
         />
       </div>
