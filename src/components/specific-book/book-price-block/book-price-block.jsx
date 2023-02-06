@@ -14,6 +14,7 @@ export function BookPriceBlock({ book }) {
   // };
 
   let totalPrice = book?.price * bookQuantity;
+  totalPrice = totalPrice.toFixed(2);
 
   return (
     <section className="book-order">
@@ -47,7 +48,7 @@ export function BookPriceBlock({ book }) {
           <p>
             <strong>Total price:</strong>
             <span id="total-price" className="price">
-              ${totalPrice.toFixed(2)}
+              ${totalPrice}
             </span>
           </p>
         </div>

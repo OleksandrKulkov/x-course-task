@@ -1,16 +1,16 @@
-// import ImageNotFound from "../../../images/imageNotFound.svg";
+import ImageNotFound from "../../../images/image-not-found.jpg";
 
 export function BookInformationBlock({ book }) {
   return (
     <section className="book-content">
       <div className="book-image">
         <img
+          src={book ? book?.image : ImageNotFound}
           alt={book?.title}
-          src={book?.image}
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = "/imageNotFound.jpg";
-          }}
+          // onError={(e) => {
+          //   e.target.onerror = null;
+          //   e.target.src = { ImageNotFound };
+          // }}
         />
       </div>
       <div className="book-information">
