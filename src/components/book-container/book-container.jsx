@@ -11,7 +11,7 @@ export function BookContainer({ book }) {
           src={book.image}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "imageNotFound.jpg";
+            e.target.src = "image-not-found.jpg";
           }}
         />
         <div className="book-summary">
@@ -25,7 +25,7 @@ export function BookContainer({ book }) {
         <div>
           <p className="book-price">${book.price}</p>
         </div>
-        <Link to="/specificBook/:book.id">
+        <Link to={`/booklist/book/${book.id}`} key={book.id}>
           <button className="view-button">View</button>
         </Link>
       </div>
