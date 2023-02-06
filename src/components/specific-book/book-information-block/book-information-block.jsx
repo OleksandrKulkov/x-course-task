@@ -7,10 +7,6 @@ export function BookInformationBlock({ book }) {
         <img
           src={book?.image ? book?.image : ImageNotFound}
           alt={book?.title}
-          // onError={(e) => {
-          //   e.target.onerror = null;
-          //   e.target.src = { ImageNotFound };
-          // }}
         />
       </div>
       <div className="book-information">
