@@ -5,7 +5,7 @@ export function BookInformationBlock({ book }) {
     <section className="book-content">
       <div className="book-image">
         <img
-          src={book ? book?.image : ImageNotFound}
+          src={book?.image ? book?.image : ImageNotFound}
           alt={book?.title}
           // onError={(e) => {
           //   e.target.onerror = null;
@@ -14,18 +14,15 @@ export function BookInformationBlock({ book }) {
         />
       </div>
       <div className="book-information">
-        <h1>{book?.title}</h1>
+        <h1>"{book?.title}"</h1>
         <p>
-          <strong>Book author: </strong>
-          {book?.author}
+          <strong>{book?.author}</strong>
         </p>
         <p>
-          <strong>Book level: </strong>
-          {book?.level}
+          <strong>advanced level</strong>
         </p>
         <p>
-          <strong>Book tags: </strong>
-          {book?.tags}
+          <strong>{book?.tags}</strong>
         </p>
       </div>
     </section>
