@@ -47,7 +47,7 @@ export function BookPriceBlock({ book }) {
           <p>
             <strong>Total price:</strong>
             <span id="total-price" className="price">
-              ${totalPrice}
+              ${totalPrice.toFixed(2)}
             </span>
           </p>
         </div>
