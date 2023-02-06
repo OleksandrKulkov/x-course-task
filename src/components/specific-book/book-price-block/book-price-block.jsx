@@ -4,14 +4,18 @@ export function BookPriceBlock({ book }) {
   const [bookQuantity, setBookQuantity] = useState(1);
 
   const handleBookQuantity = ({ target: { value } }) => {
-    setBookQuantity(value);
+    if (value < 1) {
+      setBookQuantity(1);
+    } else if (value > 42) {
+      setBookQuantity(42);
+    } else {
+      setBookQuantity(value);
+    }
   };
 
-  // const handleKeyDown = ({ key }) => {
-  //   if (key === "Enter") {
-  //     handleBookQuantity();
-  //   }
-  // };
+  const handleKeyDown = (e) => {
+    e.key === "Enter" && e.preventDefault();
+  };
 
   let totalPrice = (book?.price * bookQuantity).toFixed(2);
 
@@ -39,6 +43,7 @@ export function BookPriceBlock({ book }) {
             name="quantity"
             value={bookQuantity}
             onChange={handleBookQuantity}
+            onKeyDown={handleKeyDown}
             min="1"
             max="42"
           />
