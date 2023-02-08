@@ -60,18 +60,19 @@
 /*      ------      */
 
 .layout {
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   background-color: #9dff76de;
 }
 
 /*       SignIn      */
 
-.content {
+.main {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
   align-items: center;
+  flex-grow: 1;
 }
 
 .avatar-signin {
@@ -236,6 +237,10 @@
 
 .book-title,
 .book-author {
+  margin-bottom: 15px;
+}
+
+.book-level {
   margin-bottom: 5px;
 }
 
@@ -265,7 +270,6 @@
 .footer {
   background-color: #185218d3;
   border-top: 1px solid black;
-  margin-top: auto;
   display: flex;
   flex-direction: column;
 }
@@ -286,20 +290,12 @@
 }
 
 .footer-link:hover {
-  color: rgb(251, 255, 33);
+  color: #fbff21;
 }
 
 /* ------ */
 
 @media screen and (max-width: 320px) {
-  /* .logo {
-      text-align: center;
-  }
-
-  .name {
-      display: block;
-  } */
-
   .content {
     display: block;
   }

@@ -11,12 +11,12 @@ export function SpecificBookPage() {
   const { books } = useBooks();
 
   return (
-    <>
+    <div className="book-main">
       <div className="book-content">
         <BookInformationBlock book={books[id - 1]} />
         <BookPriceBlock book={books[id - 1]} />
       </div>
       <BookDescriptionBlock book={books[id - 1]} />
-    </>
+    </div>
   );
 }

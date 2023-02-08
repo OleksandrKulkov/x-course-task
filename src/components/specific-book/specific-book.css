@@ -1,14 +1,27 @@
 /* Main block */
 
+.book-main {
+  margin: 5%;
+}
+
 .book-content {
   height: 320px;
   display: flex;
+  justify-content: space-between;
   margin: 20px 20px;
 }
 
+img {
+  max-height: 320px;
+}
+
 .book-information {
-  width: 27%;
-  padding-left: 10px;
+  display: flex;
+}
+
+.book-about {
+  width: 100%;
+  padding: 0 3rem;
 }
 
 .book-order {
@@ -17,17 +30,20 @@
   justify-content: space-between;
   margin: 0;
   width: 30%;
-  padding: 12px;
-  border: 1px dashed grey;
+  height: 230px;
+  padding: 1rem;
+  border: 0.5px dashed grey;
 }
 
 .p-price {
   margin-top: 0;
+  margin-bottom: 1rem;
   font-weight: 700;
 }
 
 .book-total-price {
   font-weight: 700;
+  margin-top: 1rem;
 }
 
 .order-form {
@@ -41,12 +57,61 @@ label[for="quantity"] {
   align-items: center;
 }
 
+.input-form {
+  display: flex;
+  border: 0.5px solid #363636;
+  border-radius: 0.8rem;
+}
+
 input[type="number"] {
-  padding: 7px 0;
-  text-align: right;
-  border: 1px solid gray;
-  border-radius: 12px;
+  padding: 3px 0;
+  text-align: center;
+  border: none;
   float: right;
+  border-radius: 0.8rem 0 0 0.8rem;
+}
+
+input:hover,
+input:focus,
+input:active {
+  outline: none;
+  background: #ffffff;
+}
+
+.input-buttons {
+  padding: 0;
+  border-left: 0.5px solid #363636;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-increment,
+.button-decrement {
+  border: none;
+}
+
+.button-increment {
+  border-bottom: 0.5px solid #363636;
+}
+
+.button-increment {
+  border-radius: 0 0.8rem 0 0;
+}
+
+.button-decrement {
+  border-radius: 0 0 0.8rem 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .button-order-submit {

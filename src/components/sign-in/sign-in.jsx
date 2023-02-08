@@ -35,7 +35,7 @@ export function SignIn() {
   };
 
   return (
-    <div className="content">
+    <>
       <img className="avatar-signin" src={avatar} alt="Avatar" />
       <form className="form-signin" action="/" method="post">
         <div>
@@ -66,6 +66,6 @@ export function SignIn() {
           </button>
         </Link>
       </form>
-    </div>
+    </>
   );
 }

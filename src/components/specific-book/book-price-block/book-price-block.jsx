@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 export function BookPriceBlock({ book }) {
   const [bookQuantity, setBookQuantity] = useState(1);
@@ -11,6 +12,14 @@ export function BookPriceBlock({ book }) {
     } else {
       setBookQuantity(value);
     }
+  };
+
+  const handleBookQuantityIncrement = () => {
+    setBookQuantity(bookQuantity + 1);
+  };
+
+  const handleBookQuantityDecrement = () => {
+    setBookQuantity(bookQuantity - 1);
   };
 
   const handleKeyDown = (e) => {
@@ -37,16 +46,36 @@ export function BookPriceBlock({ book }) {
           method=""
         >
           <label htmlFor="quantity">Quantity: </label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={bookQuantity}
-            onChange={handleBookQuantity}
-            onKeyDown={handleKeyDown}
-            min="1"
-            max="42"
-          />
+          <div className="input-form">
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value={bookQuantity}
+              onChange={handleBookQuantity}
+              onKeyDown={handleKeyDown}
+              min="1"
+              max="42"
+            />
+            <div className="input-buttons">
+              <button
+                type="button"
+                className="button-increment"
+                onClick={handleBookQuantityIncrement}
+                disabled={bookQuantity > 41}
+              >
+                <FaCaretUp />
+              </button>
+              <button
+                type="button"
+                className="button-decrement"
+                onClick={handleBookQuantityDecrement}
+                disabled={bookQuantity < 2}
+              >
+                <FaCaretDown />
+              </button>
+            </div>
+          </div>
         </form>
         <div className="book-total-price">
           <p>
