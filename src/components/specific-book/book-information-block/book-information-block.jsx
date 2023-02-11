@@ -1,23 +1,23 @@
-import ImageNotFound from "../../../images/image-not-found.jpg";
+import ImageNotFound from "../../../images/ImageNotFound.png";
 
 export function BookInformationBlock({ book }) {
   return (
-    <section className="book-information">
-      <div className="book-image">
+    <section className="specific-book-information">
+      <div className="specific-book-image">
         <img
           src={book?.image ? book?.image : ImageNotFound}
           alt={book?.title}
         />
       </div>
-      <div className="book-about">
-        <h1 className="book-title">"{book?.title}"</h1>
-        <h3 className="book-author">
+      <div className="specific-book-about">
+        <h1 className="specific-book-title">"{book?.title}"</h1>
+        <h3 className="specific-book-author">
           <strong>{book?.author}</strong>
         </h3>
-        <p className="book-level">
+        <p className="specific-book-level">
           <strong>Level: advanced</strong>
         </p>
-        <p className="book-tags">
+        <p className="specific-book-tags">
           <strong>Tags: {book?.tags}</strong>
         </p>
       </div>

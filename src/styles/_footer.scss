@@ -1,0 +1,17 @@
+footer {
+  width: 100%;
+  background-color: $footer-color;
+  border-top: 1px solid black;
+  @include display-flex(column, center, flex-start);
+
+  .partner,
+  .owner {
+    color: #cef1ce;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .partner {
+    margin-top: 1rem;
+  }
+}

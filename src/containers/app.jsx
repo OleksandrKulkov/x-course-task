@@ -9,14 +9,13 @@ import {
   SignInPage,
   BookListPage,
   SpecificBookPage,
+  CartPage,
   NotFoundPage,
 } from "../routes";
-import "./app.css";
+import "../styles/main.scss";
 
 export function App() {
-  // const URL = "/books.json";
-
-  // const [books, setBooks] = useState([]);
+  const URL = "/books.json";
 
   const [userName, setUserName] = useState(
     LocalStorageService.get(LS_KEYS.USERNAME)
@@ -38,9 +37,12 @@ export function App() {
     [userLogged]
   );
 
-  const { data: books, loading, error } = useFetch("/books.json");
+  const { books, loading, error } = useFetch(URL);
   if (loading) return <h1>Loading...</h1>;
-  if (error) console.log(error);
+  if (error) {
+    console.log(error);
+    return null;
+  }
 
   return (
     <BooksProvider
@@ -61,6 +63,7 @@ export function App() {
               path="booklist/book/:id"
               element={<SpecificBookPage book={books[id]} />}
             />
+            <Route path="booklist/cart" element={<CartPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>

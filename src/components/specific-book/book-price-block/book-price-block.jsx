@@ -29,9 +29,9 @@ export function BookPriceBlock({ book }) {
   let totalPrice = (book?.price * bookQuantity).toFixed(2);
 
   return (
-    <section className="book-order">
-      <div className="price-block">
-        <div className="book-price">
+    <section className="specific-book-order">
+      <div className="specific-book-order-price-block">
+        <div className="specific-book-order-price">
           <p className="p-price">
             <strong>Price:</strong>
             <span id="single-price" className="price">
@@ -41,12 +41,12 @@ export function BookPriceBlock({ book }) {
         </div>
         <form
           id="order-form"
-          className="order-form"
+          className="specific-book-order-form"
           action="/send-quantity"
           method=""
         >
           <label htmlFor="quantity">Quantity: </label>
-          <div className="input-form">
+          <div className="specific-book-order-form-input">
             <input
               type="number"
               id="quantity"
@@ -57,10 +57,10 @@ export function BookPriceBlock({ book }) {
               min="1"
               max="42"
             />
-            <div className="input-buttons">
+            <div className="specific-book-order-form-input-buttons">
               <button
                 type="button"
-                className="button-increment"
+                className="specific-book-order-form-input-buttons-increment"
                 onClick={handleBookQuantityIncrement}
                 disabled={bookQuantity > 41}
               >
@@ -68,7 +68,7 @@ export function BookPriceBlock({ book }) {
               </button>
               <button
                 type="button"
-                className="button-decrement"
+                className="specific-book-order-form-input-buttons-decrement"
                 onClick={handleBookQuantityDecrement}
                 disabled={bookQuantity < 2}
               >
@@ -77,7 +77,7 @@ export function BookPriceBlock({ book }) {
             </div>
           </div>
         </form>
-        <div className="book-total-price">
+        <div className="specific-book-order-total-price">
           <p>
             <strong>Total price:</strong>
             <span id="total-price" className="price">
@@ -86,7 +86,7 @@ export function BookPriceBlock({ book }) {
           </p>
         </div>
       </div>
-      <button className="button-order-submit" type="submit">
+      <button className="specific-book-order-button-submit" type="submit">
         Add to cart
       </button>
     </section>

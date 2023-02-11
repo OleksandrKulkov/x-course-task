@@ -1,0 +1,47 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &-avatar-block {
+    text-align: center;
+  }
+
+  &-avatar {
+    width: 160px;
+    margin: 4.5rem auto 2.5rem auto;
+    border: 1px solid #58d458;
+  }
+
+  &-form {
+    font-size: 1.1rem;
+    text-align: center;
+    font-weight: 700;
+
+    &-block {
+      @include display-flex(column, center, space-between);
+    }
+  }
+
+  &-input {
+    margin: 10px 0;
+    width: 200px;
+    height: 2rem;
+    text-align: center;
+    border-radius: 5px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  &-btn {
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 200px;
+    height: 2rem;
+    border-radius: 5px;
+  }
+}

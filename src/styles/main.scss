@@ -1,0 +1,84 @@
+@import "functions";
+@import "vars";
+@import "mixins";
+@import "settings";
+
+.wrapper {
+  min-height: 100%;
+  @include display-flex(column, center, flex-start);
+  background-color: $main-background-color;
+
+  //      Header
+  @import "header";
+
+  //      Main block
+  main {
+    display: flex;
+    flex-grow: 1;
+
+    //   Signin page
+    h4.sign-in-please {
+      color: red;
+      margin-top: 20px;
+    }
+
+    @import "signin";
+
+    // Book list page
+    .book-list {
+      margin: 0 7%;
+
+      @import "search-filter-form";
+
+      @import "book-container";
+    }
+
+    //   Specific Book page
+    @import "book.scss";
+
+    //   Cart page
+    @import "cart.scss";
+  }
+
+  //   Footer
+  @import "footer.scss";
+}
+
+@media screen and (max-width: 320px) {
+  .signin {
+    display: block;
+
+    &-avatar {
+      display: block;
+      margin: 3.2rem auto 1.6rem auto;
+      width: 200px;
+      border: none;
+    }
+
+    &-form {
+      font-size: 1.1rem;
+      text-align: center;
+      font-weight: 700;
+      display: flex;
+      flex-flow: column;
+      margin-left: 8px;
+      margin-right: 8px;
+    }
+
+    &-input {
+      text-align: center;
+      width: 100%;
+      height: 2rem;
+      border-radius: 5px;
+    }
+
+    &-btn {
+      display: block;
+      width: 100%;
+      height: 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 5px;
+    }
+  }
+}

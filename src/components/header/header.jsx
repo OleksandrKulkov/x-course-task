@@ -5,7 +5,7 @@ import cn from "classnames";
 import { useBooks } from "../../hooks";
 import cart from "../../images/cart.svg";
 import avatar from "../../images/avatar.png";
-import "../../containers/app.css";
+import "../../styles/main.scss";
 
 export const Header = () => {
   const { userName, setUserName, userLogged, setUserLogged } = useBooks();
@@ -33,7 +33,9 @@ export const Header = () => {
           "shopping-block": userLogged,
         })}
       >
-        <img className="shopping-cart" src={cart} alt="Shopping cart" />
+        <Link to="booklist/cart">
+          <img className="shopping-cart" src={cart} alt="Shopping cart" />
+        </Link>
         <Link to="/">
           <button
             className="button-sign-out"

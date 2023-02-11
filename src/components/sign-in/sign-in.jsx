@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { LocalStorageService, LS_KEYS } from "../../services/localStorage";
 import { useBooks } from "../../hooks";
 import avatar from "../../images/avatar.png";
-import "../../containers/app.css";
+import "../../styles/main.scss";
 
 export function SignIn() {
-  const { userName, setUserName } = useBooks();
+  const { userName, setUserName } = useBooks("");
 
   const { userLogged, setUserLogged } = useBooks();
 
@@ -36,15 +36,14 @@ export function SignIn() {
 
   return (
     <>
-      <img className="avatar-signin" src={avatar} alt="Avatar" />
-      <form className="form-signin" action="/" method="post">
-        <div>
-          <label className="user-name" htmlFor="username">
-            Username
-          </label>
-          <br />
+      <div className="signin-avatar-block">
+        <img className="signin-avatar" src={avatar} alt="Avatar" />
+      </div>
+      <form className="signin-form" action="/" method="post">
+        <div className="signin-form-block">
+          <label htmlFor="username">Username</label>
           <input
-            className="input-signin"
+            className="signin-input"
             type="text"
             id="name"
             name="username"
@@ -57,7 +56,7 @@ export function SignIn() {
         </div>
         <Link to="/booklist">
           <button
-            className="btn-signin"
+            className="signin-btn"
             type="submit"
             onClick={handleButtonClick}
             disabled={userName.length < 4}

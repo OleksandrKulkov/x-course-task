@@ -1,0 +1,23 @@
+.cart {
+  @include display-flex(column, center, center);
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  button {
+    padding: 10px 30px;
+  }
+
+  &-empty {
+    min-height: 80px;
+  }
+
+  h1 {
+    color: $footer-color;
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,61 @@
+.book-container {
+  @include display-flex(none, none, space-between);
+  flex-wrap: wrap;
+  column-gap: 2em;
+
+  .book-block {
+    margin: 20px 0 30px 0;
+    padding: 0 10px;
+    width: 28%;
+    border: 1px solid black;
+    @include display-flex(column, center, flex-start);
+
+    // &-block {
+    //   height: 80%;
+
+    &-cover {
+      display: flex;
+      margin: 20px auto 15px auto;
+      max-height: 330px;
+
+      img {
+        max-width: 100%;
+
+        object-fit: cover;
+      }
+    }
+
+    &-summary {
+      max-width: 250px;
+      margin: 0 5px;
+      text-align: left;
+      word-wrap: break-word;
+    }
+
+    &-title,
+    &-author {
+      margin-bottom: 1rem;
+    }
+
+    &-level {
+      margin-bottom: 0.3rem;
+    }
+
+    &-actions {
+      margin-top: auto;
+      margin-bottom: 10px;
+      padding: 0 5px;
+      width: 95%;
+      @include display-flex(row, center, space-between);
+
+      &-price {
+        font-weight: bold;
+      }
+
+      button.view-btn {
+        padding: 7px 25px;
+        border-radius: 7px;
+      }
+    }
+  }
+}

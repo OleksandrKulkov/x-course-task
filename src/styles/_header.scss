@@ -1,0 +1,47 @@
+header {
+  min-height: 4rem;
+  font-size: 16px;
+  background-color: $header-color;
+  border: 1px solid black;
+  width: 100%;
+  @include display-flex(row, center, space-between);
+  color: #311414;
+
+  .header-logo-block {
+    margin: 0 1.4rem;
+  }
+
+  .shopping-block-none {
+    display: none;
+  }
+
+  .shopping-block {
+    margin: 0;
+    @include display-flex(row, center, space-between);
+
+    .shopping-cart,
+    .user-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    .user-avatar {
+      border: 0.5px solid grey;
+      border-radius: 50%;
+    }
+
+    .button-sign-out {
+      font-size: 16px;
+      font-weight: 700;
+      padding: 0.5rem 0;
+      margin: 0 1.4rem;
+      width: 90px;
+      border: 0.5px solid grey;
+      border-radius: 5px;
+    }
+
+    .username {
+      margin: 0 1.4rem;
+    }
+  }
+}
