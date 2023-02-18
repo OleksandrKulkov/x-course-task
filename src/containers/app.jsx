@@ -18,12 +18,20 @@ export function App() {
   const URL = "/books.json";
 
   const [userName, setUserName] = useState(
-    LocalStorageService.get(LS_KEYS.USERNAME)
+    LocalStorageService.get(LS_KEYS.USERNAME) || ""
   );
 
   const [userLogged, setUserLogged] = useState(
-    LocalStorageService.get(LS_KEYS.USERLOGGED)
+    LocalStorageService.get(LS_KEYS.USERLOGGED) || false
   );
+
+  const [orders, setOrders] = useState(
+    LocalStorageService.get(LS_KEYS.ORDERS) || {
+      orders: [],
+    }
+  );
+
+  const [filterValue, setFilterValue] = useState("");
 
   const { id } = useParams();
 
@@ -36,6 +44,8 @@ export function App() {
     () => LocalStorageService.set(LS_KEYS.USERLOGGED, userLogged),
     [userLogged]
   );
+
+  useEffect(() => LocalStorageService.set(LS_KEYS.ORDERS, orders), [orders]);
 
   const { books, loading, error } = useFetch(URL);
   if (loading) return <h1>Loading...</h1>;
@@ -52,6 +62,10 @@ export function App() {
         setUserName: (u) => setUserName(u),
         userLogged,
         setUserLogged: (l) => setUserLogged(l),
+        orders,
+        setOrders: (o) => setOrders(o),
+        filterValue,
+        setFilterValue: (b) => setFilterValue(b),
       }}
     >
       <BrowserRouter>

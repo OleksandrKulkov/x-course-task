@@ -16,7 +16,13 @@ export function BookContainer({ book }) {
       </div>
       <div className="book-block-summary">
         <p className="book-block-title">
-          <strong>"{book?.title}"</strong>
+          <strong>
+            "
+            {book?.title.length > 24
+              ? book?.title.slice(0, 24) + "..."
+              : book?.title}
+            "
+          </strong>
         </p>
         <p className="book-block-author">{book?.author}</p>
       </div>

@@ -3,7 +3,7 @@
 
   &-content {
     margin: 20px 20px;
-    height: 320px;
+    // height: 320px;
     @include display-flex(none, flex-start, space-between);
   }
 
@@ -31,7 +31,7 @@
 
   &-order {
     padding: 1rem;
-    width: 30%;
+    width: 27%;
     height: 230px;
     border: 0.5px dashed grey;
     @include display-flex(column, none, space-between);
@@ -72,8 +72,9 @@
         display: flex;
 
         input[type="number"] {
-          padding: 3px 0;
+          padding: 1px 0;
           text-align: center;
+          line-height: 0.5px;
           float: right;
           border: none;
           border-radius: 0.8rem 0 0 0.8rem;

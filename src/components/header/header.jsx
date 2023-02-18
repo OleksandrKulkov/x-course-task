@@ -15,7 +15,7 @@ export const Header = () => {
     [userLogged]
   );
 
-  const handleUserState = () => {
+  const handleUserSignOut = () => {
     setUserName("");
     setUserLogged(false);
   };
@@ -40,7 +40,7 @@ export const Header = () => {
           <button
             className="button-sign-out"
             type="reset"
-            onClick={handleUserState}
+            onClick={handleUserSignOut}
           >
             Sign out
           </button>

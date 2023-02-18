@@ -6,8 +6,9 @@
   .book-block {
     margin: 20px 0 30px 0;
     padding: 0 10px;
-    width: 28%;
+    min-width: 27%;
     border: 1px solid black;
+    border-radius: 7px;
     @include display-flex(column, center, flex-start);
 
     // &-block {
@@ -30,6 +31,7 @@
       margin: 0 5px;
       text-align: left;
       word-wrap: break-word;
+      align-self: stretch;
     }
 
     &-title,

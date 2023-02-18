@@ -2,18 +2,22 @@
 @import "vars";
 @import "mixins";
 @import "settings";
+// @import "normalize";
 
 .wrapper {
   min-height: 100%;
-  @include display-flex(column, center, flex-start);
+  min-width: 100%;
+  @include display-flex(column, center, space-between);
   background-color: $main-background-color;
+  flex-grow: 1;
 
   //      Header
   @import "header";
 
   //      Main block
   main {
-    display: flex;
+    min-width: 100%;
+    @include display-flex(column, center, space-between);
     flex-grow: 1;
 
     //   Signin page

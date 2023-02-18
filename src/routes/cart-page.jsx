@@ -4,10 +4,10 @@ import { useBooks } from "../hooks";
 import "../styles/main.scss";
 
 export function CartPage() {
-  const { userLogged } = useBooks();
+  const { orders, userLogged } = useBooks();
 
   if (userLogged) {
-    return <Cart />;
+    return <Cart orders={orders.orders} />;
   } else {
     return (
       <>

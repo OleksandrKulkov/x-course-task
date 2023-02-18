@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useBooks } from "../../../hooks";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 export function BookPriceBlock({ book }) {
+  const { setOrders } = useBooks();
+
   const [bookQuantity, setBookQuantity] = useState(1);
 
   const handleBookQuantity = ({ target: { value } }) => {
@@ -27,6 +30,21 @@ export function BookPriceBlock({ book }) {
   };
 
   let totalPrice = (book?.price * bookQuantity).toFixed(2);
+
+  const handleAddBook = () => {
+    setOrders((prevState) => ({
+      orders: [
+        ...prevState.orders,
+        {
+          id: book.id,
+          title: book.title,
+          author: book.author,
+          quantity: bookQuantity,
+          totalPrice: totalPrice,
+        },
+      ],
+    }));
+  };
 
   return (
     <section className="specific-book-order">
@@ -86,7 +104,11 @@ export function BookPriceBlock({ book }) {
           </p>
         </div>
       </div>
-      <button className="specific-book-order-button-submit" type="submit">
+      <button
+        className="specific-book-order-button-submit"
+        type="submit"
+        onClick={handleAddBook}
+      >
         Add to cart
       </button>
     </section>

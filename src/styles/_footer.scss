@@ -3,6 +3,7 @@ footer {
   background-color: $footer-color;
   border-top: 1px solid black;
   @include display-flex(column, center, flex-start);
+  flex-grow: 0;
 
   .partner,
   .owner {
@@ -13,5 +14,13 @@ footer {
 
   .partner {
     margin-top: 1rem;
+
+    &-link {
+      color: #61dafb;
+
+      &:hover {
+        color: #fbff21;
+      }
+    }
   }
 }
