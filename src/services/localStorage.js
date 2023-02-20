@@ -2,6 +2,7 @@ const LS_KEYS = {
   USERNAME: "userName",
   USERLOGGED: "userLogged",
   ORDERS: "orders",
+  SUMPRICE: "sumPrice",
 };
 
 class LocalStorageService {

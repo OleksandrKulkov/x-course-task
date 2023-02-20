@@ -31,7 +31,16 @@ export function App() {
     }
   );
 
+  const [sumPrice, setSumPrice] = useState(
+    LocalStorageService.get(LS_KEYS.SUMPRICE) || 0
+  );
+
   const [filterValue, setFilterValue] = useState("");
+
+  const [clearOrders, setClearOrders] = useState(
+    false || LocalStorageService.remove(LS_KEYS.ORDERS),
+    LocalStorageService.remove(LS_KEYS.SUMPRICE)
+  );
 
   const { id } = useParams();
 
@@ -46,6 +55,22 @@ export function App() {
   );
 
   useEffect(() => LocalStorageService.set(LS_KEYS.ORDERS, orders), [orders]);
+
+  useEffect(
+    () => LocalStorageService.set(LS_KEYS.SUMPRICE, sumPrice),
+    [sumPrice]
+  );
+
+  console.log(clearOrders);
+
+  useEffect(() => setClearOrders(removeOrders()), [setClearOrders]);
+
+  const removeOrders = (clearOrders) => {
+    if (clearOrders) {
+      LocalStorageService.remove(LS_KEYS.ORDERS);
+      LocalStorageService.remove(LS_KEYS.SUMPRICE);
+    }
+  };
 
   const { books, loading, error } = useFetch(URL);
   if (loading) return <h1>Loading...</h1>;
@@ -66,6 +91,10 @@ export function App() {
         setOrders: (o) => setOrders(o),
         filterValue,
         setFilterValue: (b) => setFilterValue(b),
+        sumPrice,
+        setSumPrice: (s) => setSumPrice(s),
+        clearOrders,
+        setClearOrders: (co) => setClearOrders(co),
       }}
     >
       <BrowserRouter>

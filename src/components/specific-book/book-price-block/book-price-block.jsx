@@ -3,7 +3,7 @@ import { useBooks } from "../../../hooks";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 
 export function BookPriceBlock({ book }) {
-  const { setOrders } = useBooks();
+  const { setOrders, sumPrice, setSumPrice } = useBooks();
 
   const [bookQuantity, setBookQuantity] = useState(1);
 
@@ -44,6 +44,10 @@ export function BookPriceBlock({ book }) {
         },
       ],
     }));
+
+    let sum = JSON.parse(sumPrice) + JSON.parse(totalPrice);
+
+    setSumPrice(sum.toFixed(2));
   };
 
   return (

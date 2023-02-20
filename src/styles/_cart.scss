@@ -5,12 +5,14 @@
 
   &-btn-block {
     width: 100%;
-    margin: 20px 25px 40px 0;
+    margin: 20px 25px 30px 0;
     display: flex;
     justify-content: flex-end;
 
     &-btn {
-      display: block;
+      padding: 8px 15px;
+      border-radius: 5px;
+      border: 0.5px solid grey;
     }
   }
 
@@ -22,9 +24,10 @@
     width: 97%;
     @include display-flex(row, center, space-between);
     border: 0.5px solid black;
+    border-collapse: collapse;
 
     &-title {
-      padding: 15px 10px;
+      padding: 15px 20px;
       width: 35%;
 
       &-title {
@@ -41,12 +44,37 @@
     }
 
     &-total-price {
+      text-align: right;
+      padding-right: 20px;
       width: 20%;
     }
   }
 
+  .remove-btn {
+    text-align: center;
+    min-width: 10%;
+
+    &-cursor {
+      all: unset;
+      color: $footer-color;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        color: red;
+      }
+    }
+  }
+
   .order-sum {
-    text-align: right;
+    width: 100%;
+
+    &-block {
+      font-weight: bold;
+      text-align: right;
+      margin: 20px 20px;
+    }
   }
 }
 
