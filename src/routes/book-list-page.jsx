@@ -1,8 +1,9 @@
 import { useState } from "react";
+import Select from "react-select";
 import { useBooks } from "../hooks";
+import { options } from "../constants/options";
 import { BookContainer } from "../components/book-container";
 import { SignIn } from "../components/sign-in";
-import Select from "react-select";
 import "../styles/main.scss";
 
 export function BookListPage() {
@@ -14,25 +15,6 @@ export function BookListPage() {
   const handleSearch = (e) => {
     setQuery(e.target.value);
   };
-
-  const options = [
-    {
-      value: "",
-      label: "All books",
-    },
-    {
-      value: 1,
-      label: "Up to $15",
-    },
-    {
-      value: 2,
-      label: "$15 to $30",
-    },
-    {
-      value: 3,
-      label: "Above $30",
-    },
-  ];
 
   const handleChange = (selectedOptions) => {
     setQueryPrice(selectedOptions.value);

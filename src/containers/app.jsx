@@ -37,11 +37,6 @@ export function App() {
 
   const [filterValue, setFilterValue] = useState("");
 
-  const [clearOrders, setClearOrders] = useState(
-    false || LocalStorageService.remove(LS_KEYS.ORDERS),
-    LocalStorageService.remove(LS_KEYS.SUMPRICE)
-  );
-
   const { id } = useParams();
 
   useEffect(
@@ -60,17 +55,6 @@ export function App() {
     () => LocalStorageService.set(LS_KEYS.SUMPRICE, sumPrice),
     [sumPrice]
   );
-
-  console.log(clearOrders);
-
-  useEffect(() => setClearOrders(removeOrders()), [setClearOrders]);
-
-  const removeOrders = (clearOrders) => {
-    if (clearOrders) {
-      LocalStorageService.remove(LS_KEYS.ORDERS);
-      LocalStorageService.remove(LS_KEYS.SUMPRICE);
-    }
-  };
 
   const { books, loading, error } = useFetch(URL);
   if (loading) return <h1>Loading...</h1>;
@@ -93,8 +77,6 @@ export function App() {
         setFilterValue: (b) => setFilterValue(b),
         sumPrice,
         setSumPrice: (s) => setSumPrice(s),
-        clearOrders,
-        setClearOrders: (co) => setClearOrders(co),
       }}
     >
       <BrowserRouter>

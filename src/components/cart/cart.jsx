@@ -1,15 +1,31 @@
+import { LocalStorageService, LS_KEYS } from "../../services/localStorage";
 import { useBooks } from "../../hooks";
 import { OrderedBook } from "../ordered-book/ordered-book";
 import cart from "../../images/cart.svg";
 
-export function Cart({ orders }) {
-  const { sumPrice, setClearOrders } = useBooks();
+export function Cart() {
+  const { orders, sumPrice, setSumPrice, setOrders } = useBooks();
 
   const handleSubmitButton = () => {
-    setClearOrders(true);
+    LocalStorageService.remove(LS_KEYS.ORDERS);
+    LocalStorageService.remove(LS_KEYS.SUMPRICE);
+    setOrders({ orders: [] });
+    setSumPrice(0);
   };
 
-  if (orders.length !== 0) {
+  if (orders.orders.length === 0) {
+    return (
+      <section className="cart">
+        <div className="cart-btn-block">
+          <button className="cart-btn-block-btn" disabled>
+            Purchase
+          </button>
+        </div>
+        <img className="cart-img" src={cart} alt="cart" />
+        <h1 className="cart-title">Your cart is empty now</h1>
+      </section>
+    );
+  } else {
     return (
       <section className="cart">
         <div className="cart-btn-block">
@@ -21,7 +37,7 @@ export function Cart({ orders }) {
             Purchase
           </button>
         </div>
-        {orders.map((order) => (
+        {orders.orders.map((order) => (
           <OrderedBook order={order} key={order.id} />
         ))}
         <div className="order-sum">
@@ -29,16 +45,6 @@ export function Cart({ orders }) {
             Total price: $<span>{sumPrice}</span>
           </p>
         </div>
-      </section>
-    );
-  } else {
-    return (
-      <section className="cart">
-        <div className="cart-btn-block">
-          <button className="cart-btn">Purchase</button>
-        </div>
-        <img className="cart-img" src={cart} alt="cart" />
-        <h1 className="cart-title">Your cart is empty now</h1>
       </section>
     );
   }

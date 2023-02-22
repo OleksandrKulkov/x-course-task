@@ -17,10 +17,10 @@
     &-cover {
       display: flex;
       margin: 20px auto 15px auto;
-      max-height: 330px;
+      max-height: 328px;
 
       img {
-        max-width: 100%;
+        max-width: 250px;
 
         object-fit: cover;
       }
@@ -28,15 +28,19 @@
 
     &-summary {
       max-width: 250px;
+      height: 90px;
       margin: 0 5px;
       text-align: left;
       word-wrap: break-word;
       align-self: stretch;
     }
 
-    &-title,
-    &-author {
+    &-title {
       margin-bottom: 1rem;
+    }
+
+    &-author {
+      margin-bottom: 0.5rem;
     }
 
     &-level {

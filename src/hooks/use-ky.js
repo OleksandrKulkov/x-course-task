@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
-// import axios from "axios";
+import ky from "ky";
 
-export function useFetch(url) {
+export function useKy(url) {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
+
+    async function getAllBooks() {
+      try {
+        const books = await ky.get(url).json();
+      } catch (err) {
+        console.log(err.message);
+      }
+    }
 
     fetch(url)
       .then((response) => response.json())
