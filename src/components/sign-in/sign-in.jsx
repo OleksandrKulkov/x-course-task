@@ -55,14 +55,13 @@ export function SignIn() {
           />
         </div>
         <Link to="/booklist">
-          <button
+          <input
             className="signin-btn"
             type="submit"
+            value="Sign In"
             onClick={handleButtonClick}
             disabled={userName.length < 4}
-          >
-            Sign-In
-          </button>
+          />
         </Link>
       </form>
     </>

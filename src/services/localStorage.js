@@ -24,7 +24,7 @@ class LocalStorageService {
     return window.localStorage.removeItem(key);
   }
 
-  static removeAll() {
+  static clear() {
     return window.localStorage.clear();
   }
 }

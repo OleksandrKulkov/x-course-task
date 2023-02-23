@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import { LocalStorageService, LS_KEYS } from "../services/localStorage";
 import { BooksProvider } from "../hooks";
-import { useFetch } from "../hooks/use-fetch";
+import { useFetch } from "../hooks";
 import {
   Layout,
   SignInPage,
